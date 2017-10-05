@@ -105,3 +105,8 @@ venv.bak/
 
 # app ignores
 verb_ventures_api/config/settings/secrets.py
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+ebextensions/
+.ebextensions/
