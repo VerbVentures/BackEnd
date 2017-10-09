@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(Path(__file__).ancestor(2))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4jkf6z$5dilhc%$s1udtenu$@6oxpv+jvr98)d%e8km=r27#3-'
 
-ALLOWED_HOSTS = ['http://verb-ventures-api-dev.us-east-1.elasticbeanstalk.com/','127.0.0.1'']
+ALLOWED_HOSTS = ['http://verb-ventures-api-dev.us-east-1.elasticbeanstalk.com/','127.0.0.1']
 
 
 # Application definition
