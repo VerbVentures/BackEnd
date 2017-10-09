@@ -103,10 +103,10 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Elastic Beanstalk Files
+verb_ventures_api/ebextensions/
+verb_ventures_api/.ebextensions/
+verb_ventures_api/.elasticbeanstalk/*
+
 # app ignores
 verb_ventures_api/config/settings/secrets.py
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-ebextensions/
-.ebextensions/
