@@ -1,0 +1,95 @@
+VerbVentureUser
+-
+UserID PK UUIDField
+FirstName CharField
+LastName CharField
+
+Student
+-
+UserID FK -< VerbVentureUser.UserID
+AdminID FK -< Admin.AdminID
+StudentID PK UUIDField
+
+Admin
+-
+UserID FK -< VerbVentureUser.UserID
+AdminID PK String # Facebook AccountKitID
+Email EmailField NULLABLE
+PhoneNumber CharField NULLABLE
+
+UserVerbPacks
+-
+UserID FK -< VerbVentureUser.UserID
+VerbPackID FK -< VerbPack.VerbPackID
+
+Session
+-
+SessionID PK UUIDField
+SessionDateTime DatetimeField
+Admin FK >- Admin.AdminID
+
+SessionStudents
+-
+SessionID FK >- Session.SessionID
+Student FK >- Student.StudentID
+
+Verb
+-
+VerbID PK UUIDField
+Verb CharField
+Definition CharField
+
+VerbPack
+-
+VerbPackID PK UUIDField
+AdminID FK -< Admin.AdminID
+
+VerbPackVerbs
+-
+VerbPackID FK -< VerbPack.VerbPackID
+VerbID FK -< Verb.VerbID
+
+LearnedVerb
+-
+LearnedVerbID PK UUIDField
+VerbID FK >- Verb.VerbID
+SessionID FK >- Session.SessionID
+StudentID FK >- Student.UserId
+CreatedDT DatetimeField
+Correct BooleanField
+Tries IntegerField
+
+Animation
+-
+AnimationID PK UUIDField
+Verb FK >- Verb.VerbID
+ImageAddress UrlField
+
+
+[settings]
+Zoom 100
+Position 142 -520
+
+[layout]
+LearnedVerb -20 1021
+
+Session 615 990
+
+Admin 682 821
+
+Student 1200 818
+
+VerbVentureUser 944 699
+
+VerbPack 261 566
+
+Verb 263 796
+
+Animation 263 934
+
+
+VerbPackVerbs 263 679
+
+SessionStudents 928 995
+
+UserVerbPacks 673 533
