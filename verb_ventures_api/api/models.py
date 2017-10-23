@@ -8,6 +8,8 @@ class VerbVentureUser(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return '%s %s' % (self.first_name, self.last_name)
 
 class Admin(models.Model):
     admin_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -16,12 +18,25 @@ class Admin(models.Model):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True)
 
+    def delete(self):
+        self.user.delete()
+        return self
+
+    def __str__(self):
+        return str(self.user)
+
 
 class Student(models.Model):
     student_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(VerbVentureUser, on_delete=models.CASCADE)
     admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
 
+    def delete(self):
+        self.user.delete()
+        return self
+
+    def __str__(self):
+        return str(self.user)
 
 class Session(models.Model):
     session_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
