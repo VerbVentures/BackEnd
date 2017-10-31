@@ -15,6 +15,7 @@ class VerbVentureUserSerializer(serializers.ModelSerializer):
         model = VerbVentureUser
         fields = ('user_id', 'first_name', 'last_name')
 
+
 class AdminSerializer(serializers.ModelSerializer):
     user = VerbVentureUserSerializer()
 
@@ -27,6 +28,7 @@ class AdminSerializer(serializers.ModelSerializer):
         user = VerbVentureUser.objects.create(**user_data)
         admin = Admin.objects.create(user=user, **validated_data)
         return admin
+
 
 class StudentSerializer(serializers.ModelSerializer):
     user = VerbVentureUserSerializer()
@@ -41,20 +43,31 @@ class StudentSerializer(serializers.ModelSerializer):
         return student
 
 
-class Session(serializers.ModelSerializer):
-    pass
+class SessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Session
+        fields = ('session_id', 'session_dt', 'admin', 'session_students')
 
 
-class Verb(serializers.ModelSerializer):
-    pass
-
-class Animation(serializers.ModelSerializer):
-    pass
-
-
-class VerbPack(serializers.ModelSerializer):
-    pass
+class VerbSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Verb
+        fields = ('verb_id', 'verb', 'definition')
 
 
-class LearnedVerb(serializers.ModelSerializer):
-    pass
+class AnimationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Animation
+        fields = ('animation_id', 'verb', 'image_address')
+
+
+class VerbPackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VerbPack
+        fields = ('verb_pack_id', 'title', 'admin', 'verb_pack_verbs', 'user_verb_packs')
+
+
+class LearnedVerbSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LearnedVerb
+        fields = ('learned_verb_id', 'verb', 'session', 'student', 'created_dt', 'correct', 'tries')
