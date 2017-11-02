@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^admins/$', views.AdminListCreate.as_view()),
     url(r'^admins/(?P<pk>[0-9a-f-]+)/$', views.AdminRetrieveUpdateDestroy.as_view()),
     url(r'^students/$', views.StudentListCreate.as_view()),
+    url(r'^get-admin-students/(?P<pk>[0-9a-f-]+)/$', views.StudentList.as_view()),
     url(r'^students/(?P<pk>[0-9a-f-]+)/$', views.StudentRetrieveUpdateDestroy.as_view()),
     url(r'^sessions/$', views.SessionListCreate.as_view()),
     url(r'^sessions/(?P<pk>[0-9a-f-]+)/$', views.SessionRetrieveUpdateDestroy.as_view()),

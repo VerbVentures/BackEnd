@@ -40,6 +40,14 @@ class StudentListCreate(generics.ListCreateAPIView):
     serializer_class = StudentSerializer
 
 
+class StudentList(generics.ListAPIView):
+    serializer_class = StudentSerializer
+
+    def get_queryset(self):
+        admin = self.kwargs['pk']
+        return Student.objects.filter(admin=admin)
+
+
 class StudentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
