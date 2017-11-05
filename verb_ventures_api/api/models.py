@@ -51,6 +51,7 @@ class Session(models.Model):
 
 class Verb(models.Model):
     verb_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    admin = models.ForeignKey(Admin, on_delete=models.CASCADE, blank=True, null=True)
     verb = models.CharField(max_length=20)
     definition = models.TextField()
 
