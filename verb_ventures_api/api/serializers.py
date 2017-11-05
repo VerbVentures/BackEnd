@@ -67,6 +67,12 @@ class VerbPackSerializer(serializers.ModelSerializer):
         fields = ('verb_pack_id', 'title', 'admin', 'verb_pack_verbs', 'user_verb_packs')
 
 
+class OwnedVerbPackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VerbPack
+        fields = ('verb_pack_id', 'title', 'admin', 'verb_pack_verbs')
+
+
 class LearnedVerbSerializer(serializers.ModelSerializer):
     class Meta:
         model = LearnedVerb

@@ -17,7 +17,8 @@ from api.serializers import (
     VerbSerializer,
     AnimationSerializer,
     VerbPackSerializer,
-    LearnedVerbSerializer
+    LearnedVerbSerializer,
+    OwnedVerbPackSerializer
 )
 
 class VerbVentureUserList(generics.ListAPIView):
@@ -46,6 +47,22 @@ class StudentList(generics.ListAPIView):
     def get_queryset(self):
         admin = self.kwargs['pk']
         return Student.objects.filter(admin=admin)
+
+
+class VerbList(generics.ListAPIView):
+    serializer_class = VerbSerializer
+
+    def get_queryset(self):
+        admin = self.kwargs['pk']
+        return Verb.objects.filter(admin=admin)
+
+
+class VerbPackList(generics.ListAPIView):
+    serializer_class = OwnedVerbPackSerializer
+
+    def get_queryset(self):
+        user = self.kwargs['pk']
+        return VerbPack.objects.filter(user_verb_packs=user)
 
 
 class StudentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
