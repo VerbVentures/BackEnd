@@ -52,7 +52,7 @@ class SessionSerializer(serializers.ModelSerializer):
 class VerbSerializer(serializers.ModelSerializer):
     class Meta:
         model = Verb
-        fields = ('verb_id', 'verb', 'definition')
+        fields = ('verb_id', 'verb', 'definition', 'admin')
 
 
 class AnimationSerializer(serializers.ModelSerializer):
