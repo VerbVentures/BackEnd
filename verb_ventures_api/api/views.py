@@ -48,6 +48,22 @@ class StudentList(generics.ListAPIView):
         return Student.objects.filter(admin=admin)
 
 
+class VerbList(generics.ListAPIView):
+    serializer_class = VerbSerializer
+
+    def get_queryset(self):
+        admin = self.kwargs['pk']
+        return Verb.objects.filter(admin=admin)
+
+
+class VerbPackList(generics.ListAPIView):
+    serializer_class = VerbPackSerializer
+
+    def get_queryset(self):
+        user = self.kwargs['pk']
+        return VerbPack.objects.filter(user_verb_packs=user)
+
+
 class StudentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
