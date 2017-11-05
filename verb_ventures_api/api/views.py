@@ -17,7 +17,8 @@ from api.serializers import (
     VerbSerializer,
     AnimationSerializer,
     VerbPackSerializer,
-    LearnedVerbSerializer
+    LearnedVerbSerializer,
+    OwnedVerbPackSerializer
 )
 
 class VerbVentureUserList(generics.ListAPIView):
@@ -57,7 +58,7 @@ class VerbList(generics.ListAPIView):
 
 
 class VerbPackList(generics.ListAPIView):
-    serializer_class = VerbPackSerializer
+    serializer_class = OwnedVerbPackSerializer
 
     def get_queryset(self):
         user = self.kwargs['pk']
