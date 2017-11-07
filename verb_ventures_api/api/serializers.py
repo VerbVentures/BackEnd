@@ -76,4 +76,4 @@ class OwnedVerbPackSerializer(serializers.ModelSerializer):
 class LearnedVerbSerializer(serializers.ModelSerializer):
     class Meta:
         model = LearnedVerb
-        fields = ('learned_verb_id', 'verb', 'session', 'student', 'created_dt', 'correct', 'tries')
+        fields = ('learned_verb_id', 'verb', 'session', 'student', 'animations', 'created_dt', 'correct', 'tries')

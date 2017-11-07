@@ -83,6 +83,7 @@ class LearnedVerb(models.Model):
     verb = models.ForeignKey(Verb, on_delete=models.CASCADE)
     session = models.ForeignKey(Session, db_index=True, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, db_index=True, on_delete=models.CASCADE)
+    animations = models.ManyToManyField(Animation)
     created_dt = models.DateTimeField(auto_now_add=True)
     correct = models.BooleanField()
     tries = models.IntegerField()
