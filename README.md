@@ -47,6 +47,22 @@ Back-End Web API for Verb Ventures
 }
 ```
 
+### VerbPack
+```
+{
+    "verbPackId": "24f3e614-92a2-48fc-80c3-126aa3ad7831",
+    "title": "Movement",
+    "admin": "1513371865405634",
+    "verbPackVerbs": [
+        "42f29886-f9ae-4c49-8470-b87267d6133a",
+        "7b207d82-1823-4d2c-9bcc-2df0ecf9a3da"
+    ],
+    "userVerbPacks": [
+        "001d895a-a81e-41ba-aa2d-dcb45816c98c"
+    ]
+}
+```
+
 ### Session
 ```
 {
