@@ -6,12 +6,6 @@ DEBUG = True
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    )
-}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
