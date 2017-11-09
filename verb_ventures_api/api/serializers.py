@@ -13,7 +13,7 @@ from api.models import (
 class VerbVentureUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = VerbVentureUser
-        fields = ('user_id', 'first_name', 'last_name')
+        fields = ('userId', 'firstName', 'lastName')
 
 
 class AdminSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class AdminSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Admin
-        fields = ('admin_id', 'user', 'email', 'phone_number')
+        fields = ('accountKitId', 'email', 'user')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
@@ -34,7 +34,7 @@ class StudentSerializer(serializers.ModelSerializer):
     user = VerbVentureUserSerializer()
     class Meta:
         model = Student
-        fields = ('student_id', 'user', 'admin')
+        fields = ('studentId', 'user', 'admin')
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')
@@ -46,34 +46,34 @@ class StudentSerializer(serializers.ModelSerializer):
 class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Session
-        fields = ('session_id', 'session_dt', 'admin', 'session_students')
+        fields = ('sessionId', 'sessionDt', 'admin', 'sessionStudents')
 
 
 class VerbSerializer(serializers.ModelSerializer):
     class Meta:
         model = Verb
-        fields = ('verb_id', 'verb', 'definition', 'admin')
+        fields = ('verbId', 'verb', 'definition', 'admin')
 
 
 class AnimationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Animation
-        fields = ('animation_id', 'verb', 'image_address')
+        fields = ('animationId', 'verb', 'imageAddress')
 
 
 class VerbPackSerializer(serializers.ModelSerializer):
     class Meta:
         model = VerbPack
-        fields = ('verb_pack_id', 'title', 'admin', 'verb_pack_verbs', 'user_verb_packs')
+        fields = ('verbPackId', 'title', 'admin', 'verbPackVerbs', 'userVerbPacks')
 
 
 class OwnedVerbPackSerializer(serializers.ModelSerializer):
     class Meta:
         model = VerbPack
-        fields = ('verb_pack_id', 'title', 'admin', 'verb_pack_verbs')
+        fields = ('verbPackId', 'title', 'admin', 'verbPackVerbs')
 
 
 class LearnedVerbSerializer(serializers.ModelSerializer):
     class Meta:
         model = LearnedVerb
-        fields = ('learned_verb_id', 'verb', 'session', 'student', 'animations', 'created_dt', 'correct', 'tries')
+        fields = ('learnedVerbId', 'verb', 'session', 'student', 'animations', 'createdDt', 'correct', 'tries')
