@@ -1,4 +1,5 @@
 from rest_framework import generics
+from django.db.models import Q
 from api.models import (
     VerbVentureUser,
     Admin,
@@ -54,7 +55,7 @@ class VerbList(generics.ListAPIView):
 
     def get_queryset(self):
         admin = self.kwargs['pk']
-        return Verb.objects.filter(admin=admin)
+        return Verb.objects.filter(Q(admin=admin) | Q(admin=None))
 
 
 class VerbPackList(generics.ListAPIView):
@@ -63,6 +64,14 @@ class VerbPackList(generics.ListAPIView):
     def get_queryset(self):
         user = self.kwargs['pk']
         return VerbPack.objects.filter(user_verb_packs=user)
+
+
+class SessionList(generics.ListAPIView):
+    serializer_class = SessionSerializer
+
+    def get_queryset(self):
+        admin = self.kwargs['pk']
+        return Session.objects.filter(admin=admin)
 
 
 class StudentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
