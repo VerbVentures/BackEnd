@@ -43,6 +43,15 @@ class StudentSerializer(serializers.ModelSerializer):
         return student
 
 
+    def update(self, instance, validated_data):
+        instance.admin = validated_data['admin']
+        instance.user.firstName = validated_data['user']['firstName']
+        instance.user.lastName = validated_data['user']['lastName']
+        instance.save()
+
+        return instance
+
+
 class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Session
