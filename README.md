@@ -75,3 +75,32 @@ Back-End Web API for Verb Ventures
     ]
 }
 ```
+
+### Get Random Verb
+```
+{
+    "selectedVerb": {
+        "verbId": "42f29886-f9ae-4c49-8470-b87267d6133a",
+        "verb": "walk",
+        "definition": "move at a regular and fairly slow pace by lifting and setting down each foot in turn, never having both feet off the ground at once"
+    },
+    "correctAnimation": {
+        "animationId": "338b6fe4-1333-410a-aa09-cf505980449b",
+        "imageAddress": "https://media.giphy.com/media/omHPYZttAVAAw/giphy.gif"
+    },
+    "invalidAnimations": [
+        {
+            "animationId": "dfce5e7b-9e82-4d87-97e4-50bbcbb903f1",
+            "imageAddress": "https://media.giphy.com/media/kXRxVesdY8dwI/giphy.gif"
+        },
+        {
+            "animationId": "66e00b1b-172e-43af-ab36-a11a7dfe3d8c",
+            "imageAddress": "https://media.giphy.com/media/26u3ZSuG6TiKeZczu/giphy.gif"
+        },
+        {
+            "animationId": "2b10d681-62d2-4631-be52-5c091a424884",
+            "imageAddress": "https://media.giphy.com/media/3o6Ztroynp3WpqLD1u/giphy.gif"
+        }
+    ]
+}
+```
