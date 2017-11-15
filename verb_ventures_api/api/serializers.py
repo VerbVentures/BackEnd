@@ -47,6 +47,7 @@ class StudentSerializer(serializers.ModelSerializer):
         instance.admin = validated_data['admin']
         instance.user.firstName = validated_data['user']['firstName']
         instance.user.lastName = validated_data['user']['lastName']
+        instance.user.save()
         instance.save()
 
         return instance
