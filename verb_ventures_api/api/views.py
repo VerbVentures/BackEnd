@@ -70,6 +70,14 @@ class VerbPackList(generics.ListAPIView):
         return VerbPack.objects.filter(user_verb_packs=user)
 
 
+class VerbPackListAdmin(generics.ListAPIView):
+    serializer_class = OwnedVerbPackSerializer
+
+    def get_queryset(self):
+        admin = self.kwargs['pk']
+        return VerbPack.objects.filter(admin=admin)
+
+
 class SessionList(generics.ListAPIView):
     serializer_class = SessionSerializer
 

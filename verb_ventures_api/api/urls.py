@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^get-admin-students/(?P<pk>[0-9a-f-]+)/$', views.StudentList.as_view()),
     url(r'^get-admin-verbs/(?P<pk>[0-9a-f-]+)/$', views.VerbList.as_view()),
     url(r'^get-user-verbpacks/(?P<pk>[0-9a-f-]+)/$', views.VerbPackList.as_view()),
+    url(r'^get-admin-verbpacks/(?P<pk>[0-9a-f-]+)/$', views.VerbPackListAdmin.as_view()),
     url(r'^get-admin-sessions/(?P<pk>[0-9a-f-]+)/$', views.SessionList.as_view()),
     url(r'^get-random-verb/(?P<pk>[0-9a-f-]+)/$', views.GetRandomVerb.as_view()),
     url(r'^students/(?P<pk>[0-9a-f-]+)/$', views.StudentRetrieveUpdateDestroy.as_view()),
