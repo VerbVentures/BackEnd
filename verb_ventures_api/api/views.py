@@ -67,7 +67,7 @@ class VerbPackList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.kwargs['pk']
-        return VerbPack.objects.filter(user_verb_packs=user)
+        return VerbPack.objects.filter(userVerbPacks=user)
 
 
 class VerbPackListAdmin(generics.ListAPIView):
